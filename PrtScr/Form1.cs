@@ -28,6 +28,9 @@ namespace PrtScr
             setNumericUpDownLimit();
         }
 
+        /// <summary>
+        /// NumericUpDownの初期設定を行う
+        /// </summary>
         private void setNumericUpDownLimit()
         {
             int scrNum = 0;
@@ -62,10 +65,11 @@ namespace PrtScr
             }
         }
 
-        private void buttonPrtscr_Click(object sender, EventArgs e)
-        {
-        }
-
+        /// <summary>
+        /// フォームをロード
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
             // HotKey
@@ -145,6 +149,7 @@ namespace PrtScr
         {
             setNumericUpDownLimit();
         }
+
         /// <summary>
         /// 左上を変更→サイズはそのまま右下を移動
         /// </summary>
@@ -259,17 +264,43 @@ namespace PrtScr
             }
         }
 
+        /// <summary>
+        /// フォームを隠したうえでスクリーンショットを撮る
+        /// </summary>
+        private void takePrtscrWithHiding()
+        {
+            this.ShowInTaskbar = false;
+            this.Opacity = 0;
+            takePrtscr();
+            this.Opacity = 1;
+            this.ShowInTaskbar = true;
+        }
+
+        /// <summary>
+        /// メニュー押下時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void prtScrToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            takePrtscr();
+            takePrtscrWithHiding();
         }
 
-        // HotKey
+        /// <summary>
+        /// ホットキー押下時
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void hotKey_HotKeyPush(object sender, EventArgs e)
         {
-            takePrtscr();
+            takePrtscrWithHiding();
         }
 
+        /// <summary>
+        /// 後片付け
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             hotKey.Dispose();
