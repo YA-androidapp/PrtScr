@@ -1,4 +1,5 @@
-﻿namespace PrtScr
+﻿// Copyright (c) 2016 YA-androidapp(https://github.com/YA-androidapp) All rights reserved.
+namespace PrtScr
 {
     partial class Form1
     {
@@ -58,6 +59,7 @@
             this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.prtScrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBoxTimer = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopLeftX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopLeftY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBottomRightY)).BeginInit();
@@ -135,6 +137,8 @@
             this.capturedPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.capturedPictureBox.TabIndex = 7;
             this.capturedPictureBox.TabStop = false;
+            this.toolTipInfo.SetToolTip(this.capturedPictureBox, "Copyright (c) 2016 YA-androidapp(https://github.com/YA-androidapp) All rights res" +
+        "erved.");
             // 
             // panel1
             // 
@@ -229,6 +233,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.checkBoxTimer);
             this.panel2.Controls.Add(this.checkBoxSaveToPng);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.checkBoxEnableMasking);
@@ -242,9 +247,9 @@
             this.checkBoxSaveToPng.AutoSize = true;
             this.checkBoxSaveToPng.Location = new System.Drawing.Point(3, 3);
             this.checkBoxSaveToPng.Name = "checkBoxSaveToPng";
-            this.checkBoxSaveToPng.Size = new System.Drawing.Size(85, 16);
+            this.checkBoxSaveToPng.Size = new System.Drawing.Size(90, 16);
             this.checkBoxSaveToPng.TabIndex = 14;
-            this.checkBoxSaveToPng.Text = "SaveToPNG";
+            this.checkBoxSaveToPng.Text = "Save to PNG";
             this.toolTipInfo.SetToolTip(this.checkBoxSaveToPng, "PrtScrメニュー押下時にPNGファイルを保存");
             this.checkBoxSaveToPng.UseVisualStyleBackColor = true;
             // 
@@ -335,6 +340,17 @@
             this.prtScrToolStripMenuItem.Text = "PrtScr";
             this.prtScrToolStripMenuItem.Click += new System.EventHandler(this.prtScrToolStripMenuItem_Click);
             // 
+            // checkBoxTimer
+            // 
+            this.checkBoxTimer.AutoSize = true;
+            this.checkBoxTimer.Location = new System.Drawing.Point(94, 3);
+            this.checkBoxTimer.Name = "checkBoxTimer";
+            this.checkBoxTimer.Size = new System.Drawing.Size(74, 16);
+            this.checkBoxTimer.TabIndex = 15;
+            this.checkBoxTimer.Text = "Self timer";
+            this.toolTipInfo.SetToolTip(this.checkBoxTimer, "PrtScrメニュー押下時にPNGファイルを保存");
+            this.checkBoxTimer.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -347,7 +363,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "PrtScr";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopLeftX)).EndInit();
@@ -405,6 +421,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem prtScrToolStripMenuItem;
         private System.Windows.Forms.CheckBox checkBoxSaveToPng;
+        private System.Windows.Forms.CheckBox checkBoxTimer;
     }
 }
 

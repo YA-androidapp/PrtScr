@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Copyright (c) 2016 YA-androidapp(https://github.com/YA-androidapp) All rights reserved.
+
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
@@ -271,7 +273,10 @@ namespace PrtScr
         {
             this.ShowInTaskbar = false;
             this.Opacity = 0;
+            if(checkBoxTimer.Checked)
+                System.Threading.Thread.Sleep(2000);
             takePrtscr();
+            System.Media.SystemSounds.Asterisk.Play();
             this.Opacity = 1;
             this.ShowInTaskbar = true;
         }
