@@ -48,6 +48,7 @@ namespace PrtScr
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.checkBoxTimer = new System.Windows.Forms.CheckBox();
             this.checkBoxSaveToPng = new System.Windows.Forms.CheckBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.TopLeftX = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,7 +60,6 @@ namespace PrtScr
             this.toolTipInfo = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.prtScrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.checkBoxTimer = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopLeftX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownTopLeftY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBottomRightY)).BeginInit();
@@ -242,6 +242,17 @@ namespace PrtScr
             this.panel2.Size = new System.Drawing.Size(350, 130);
             this.panel2.TabIndex = 11;
             // 
+            // checkBoxTimer
+            // 
+            this.checkBoxTimer.AutoSize = true;
+            this.checkBoxTimer.Location = new System.Drawing.Point(94, 3);
+            this.checkBoxTimer.Name = "checkBoxTimer";
+            this.checkBoxTimer.Size = new System.Drawing.Size(74, 16);
+            this.checkBoxTimer.TabIndex = 15;
+            this.checkBoxTimer.Text = "Self timer";
+            this.toolTipInfo.SetToolTip(this.checkBoxTimer, "PrtScrメニュー押下時にPNGファイルを保存");
+            this.checkBoxTimer.UseVisualStyleBackColor = true;
+            // 
             // checkBoxSaveToPng
             // 
             this.checkBoxSaveToPng.AutoSize = true;
@@ -339,17 +350,6 @@ namespace PrtScr
             this.prtScrToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
             this.prtScrToolStripMenuItem.Text = "PrtScr";
             this.prtScrToolStripMenuItem.Click += new System.EventHandler(this.prtScrToolStripMenuItem_Click);
-            // 
-            // checkBoxTimer
-            // 
-            this.checkBoxTimer.AutoSize = true;
-            this.checkBoxTimer.Location = new System.Drawing.Point(94, 3);
-            this.checkBoxTimer.Name = "checkBoxTimer";
-            this.checkBoxTimer.Size = new System.Drawing.Size(74, 16);
-            this.checkBoxTimer.TabIndex = 15;
-            this.checkBoxTimer.Text = "Self timer";
-            this.toolTipInfo.SetToolTip(this.checkBoxTimer, "PrtScrメニュー押下時にPNGファイルを保存");
-            this.checkBoxTimer.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

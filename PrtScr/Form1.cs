@@ -38,31 +38,40 @@ namespace PrtScr
             int scrNum = 0;
             int.TryParse(Convert.ToString(numericUpDownScreenNumber.Value), out scrNum);
 
-            numericUpDownTopLeftX.Minimum = Screen.AllScreens[scrNum].Bounds.Left;
-            numericUpDownTopLeftY.Minimum = Screen.AllScreens[scrNum].Bounds.Top;
-            numericUpDownBottomRightX.Minimum = Screen.AllScreens[scrNum].Bounds.Right;
-            numericUpDownBottomRightY.Minimum = Screen.AllScreens[scrNum].Bounds.Bottom;
-            numericUpDownWidth.Minimum = 0;
-            numericUpDownHeight.Minimum = 0;
+            // Graphics desktop = Graphics.FromHwnd(Handle);
+            float scaleX = 3; // desktop.DpiX / 96.0f;
+            float scaleY = 3; // desktop.DpiY / 96.0f;
 
-            numericUpDownTopLeftX.Maximum = Screen.AllScreens[scrNum].Bounds.Left + Screen.AllScreens[scrNum].Bounds.Width;
-            numericUpDownTopLeftY.Maximum = Screen.AllScreens[scrNum].Bounds.Top;
-            numericUpDownBottomRightX.Maximum = Screen.AllScreens[scrNum].Bounds.Right + Screen.AllScreens[scrNum].Bounds.Width;
-            numericUpDownBottomRightY.Maximum = Screen.AllScreens[scrNum].Bounds.Bottom + Screen.AllScreens[scrNum].Bounds.Height;
-            numericUpDownWidth.Maximum = Math.Abs(Screen.AllScreens[scrNum].Bounds.Left - Screen.AllScreens[scrNum].Bounds.Right)
-                + Math.Abs(Screen.AllScreens[scrNum].Bounds.Width);
-            numericUpDownHeight.Maximum = Math.Abs(Screen.AllScreens[scrNum].Bounds.Top - Screen.AllScreens[scrNum].Bounds.Bottom)
-                + Math.Abs(Screen.AllScreens[scrNum].Bounds.Height);
+            int b = Screen.AllScreens[scrNum].Bounds.Bottom;    //  1080
+            int h = Screen.AllScreens[scrNum].Bounds.Height;    //  2160
+            int l = Screen.AllScreens[scrNum].Bounds.Left;      //  1920
+            int r = Screen.AllScreens[scrNum].Bounds.Right;     //  5760
+            int t = Screen.AllScreens[scrNum].Bounds.Top;       // -1080
+            int w = Screen.AllScreens[scrNum].Bounds.Width;     //  3840
+
+            numericUpDownTopLeftX.Minimum       = l - w;
+            numericUpDownTopLeftY.Minimum       = t - h;
+            numericUpDownBottomRightX.Minimum   = l;
+            numericUpDownBottomRightY.Minimum   = t;
+            numericUpDownWidth.Minimum          = 0;
+            numericUpDownHeight.Minimum         = 0;
+
+            numericUpDownTopLeftX.Maximum       = (int)(scaleX * r);
+            numericUpDownTopLeftY.Maximum       = (int)(scaleX * b);
+            numericUpDownBottomRightX.Maximum   = (int)(scaleX * r + w);
+            numericUpDownBottomRightY.Maximum   = (int)(scaleX * b + h);
+            numericUpDownWidth.Maximum          = (int)(scaleX * Math.Abs(w));
+            numericUpDownHeight.Maximum         = (int)(scaleY * Math.Abs(h));
 
             if (!changingNumericUpDown)
             {
                 changingNumericUpDown = true;
-                numericUpDownTopLeftX.Value = Screen.AllScreens[scrNum].Bounds.Left;
-                numericUpDownTopLeftY.Value = Screen.AllScreens[scrNum].Bounds.Top;
-                numericUpDownBottomRightX.Value = Screen.AllScreens[scrNum].Bounds.Right;
-                numericUpDownBottomRightY.Value = Screen.AllScreens[scrNum].Bounds.Bottom;
-                numericUpDownWidth.Value = Screen.AllScreens[scrNum].Bounds.Width;
-                numericUpDownHeight.Value = Screen.AllScreens[scrNum].Bounds.Height;
+                numericUpDownTopLeftX.Value     = l;
+                numericUpDownTopLeftY.Value     = t;
+                numericUpDownBottomRightX.Value = r;
+                numericUpDownBottomRightY.Value = b;
+                numericUpDownWidth.Value        = w;
+                numericUpDownHeight.Value       = h;
                 changingNumericUpDown = false;
             }
         }
